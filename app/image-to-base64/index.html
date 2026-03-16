@@ -77,25 +77,30 @@
     <!-- Blob URL link -->
     <div id="blob-link-wrap" aria-label="Blob preview URL" style="display:none"></div>
 
-    <!-- Drop zone -->
-    <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drop image here or click to browse">
-      <input type="file" id="file-input" accept="image/*" onchange="handleFile(this.files[0])" aria-label="Select image file"/>
-      <div class="dz-icon-wrap" aria-hidden="true"><i class="fi fi-rr-upload"></i></div>
-      <div class="dz-title">Drop image here, or <span class="dz-link">click to browse</span></div>
-      <div class="dz-sub">PNG, JPEG, GIF, WebP, SVG, BMP, ICO &mdash; max 10 MB &mdash; or paste from clipboard</div>
-    </div>
-
-    <!-- URL import toggle button -->
-    <div style="margin-top:.75rem">
-      <button id="url-import-toggle" class="btn btn-ghost btn-sm" type="button"
-              aria-expanded="false" aria-controls="url-import-row"
-              style="font-size:.8125rem;padding:.35rem .85rem;">
+    <!-- Unified input area: tab switcher for File vs URL -->
+    <div class="input-tabs" role="tablist" aria-label="Input method">
+      <button class="input-tab active" id="tab-file" role="tab"
+              aria-selected="true" aria-controls="panel-file" type="button">
+        <i class="fi fi-rr-upload" aria-hidden="true"></i> File / Drop
+      </button>
+      <button class="input-tab" id="tab-url" role="tab"
+              aria-selected="false" aria-controls="panel-url" type="button">
         <i class="fi fi-rr-link" aria-hidden="true"></i> Import from URL
       </button>
     </div>
 
-    <!-- URL import row (hidden by default, shown on toggle or ?import= param) -->
-    <div id="url-import-row" style="display:none;margin-top:.75rem" role="group" aria-label="Import image from URL">
+    <!-- File panel -->
+    <div id="panel-file" class="input-panel" role="tabpanel" aria-labelledby="tab-file">
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drop image here or click to browse">
+        <input type="file" id="file-input" accept="image/*" onchange="handleFile(this.files[0])" aria-label="Select image file"/>
+        <div class="dz-icon-wrap" aria-hidden="true"><i class="fi fi-rr-upload"></i></div>
+        <div class="dz-title">Drop image here, or <span class="dz-link">click to browse</span></div>
+        <div class="dz-sub">PNG, JPEG, GIF, WebP, SVG, BMP, ICO &mdash; max 10 MB &mdash; or paste from clipboard</div>
+      </div>
+    </div>
+
+    <!-- URL panel -->
+    <div id="panel-url" class="input-panel" role="tabpanel" aria-labelledby="tab-url" style="display:none">
       <div class="url-import-wrap">
         <input
           id="url-import-input"
@@ -106,14 +111,14 @@
           autocomplete="off"
           spellcheck="false"
         />
-        <button id="url-import-btn" class="btn btn-primary btn-sm url-import-submit" type="button" aria-label="Import image from URL">
+        <button id="url-import-btn" class="btn btn-primary url-import-submit" type="button" aria-label="Import image from URL">
           <i class="fi fi-rr-download" aria-hidden="true"></i> Import
         </button>
       </div>
       <p class="url-import-hint">
         <i class="fi fi-rr-info" aria-hidden="true"></i>
         Paste any public image URL. CORS-blocked URLs are automatically retried via a proxy.
-        You can also share links using <code>?import=&lt;url&gt;</code>.
+        Shareable link: <code>?import=&lt;url&gt;</code>
       </p>
     </div>
 

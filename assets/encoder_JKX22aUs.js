@@ -53,31 +53,58 @@
     });
   }
 
-  /* ── URL import UI ── */
+  /* ── Tab switcher (File vs URL) ── */
   function setupUrlImport() {
-    var btn   = document.getElementById('url-import-btn');
-    var input = document.getElementById('url-import-input');
-    if (!btn || !input) return;
+    var tabFile   = document.getElementById('tab-file');
+    var tabUrl    = document.getElementById('tab-url');
+    var panelFile = document.getElementById('panel-file');
+    var panelUrl  = document.getElementById('panel-url');
+    var btn       = document.getElementById('url-import-btn');
+    var input     = document.getElementById('url-import-input');
 
-    btn.addEventListener('click', function () {
-      triggerUrlImport(input.value.trim());
+    if (!tabFile || !tabUrl) return;
+
+    tabFile.addEventListener('click', function () {
+      tabFile.classList.add('active');
+      tabFile.setAttribute('aria-selected', 'true');
+      tabUrl.classList.remove('active');
+      tabUrl.setAttribute('aria-selected', 'false');
+      panelFile.style.display = '';
+      panelUrl.style.display  = 'none';
     });
 
-    input.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); triggerUrlImport(input.value.trim()); }
+    tabUrl.addEventListener('click', function () {
+      tabUrl.classList.add('active');
+      tabUrl.setAttribute('aria-selected', 'true');
+      tabFile.classList.remove('active');
+      tabFile.setAttribute('aria-selected', 'false');
+      panelUrl.style.display  = '';
+      panelFile.style.display = 'none';
+      if (input) input.focus();
     });
 
-    /* Show/hide the URL import row */
-    var toggle = document.getElementById('url-import-toggle');
-    var row    = document.getElementById('url-import-row');
-    if (toggle && row) {
-      toggle.addEventListener('click', function () {
-        var open = row.style.display !== 'none';
-        row.style.display = open ? 'none' : '';
-        toggle.setAttribute('aria-expanded', String(!open));
-        if (!open) input.focus();
+    if (btn && input) {
+      btn.addEventListener('click', function () {
+        triggerUrlImport(input.value.trim());
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); triggerUrlImport(input.value.trim()); }
       });
     }
+  }
+
+  /* ── Switch to URL tab (called by checkImportParam) ── */
+  function switchToUrlTab() {
+    var tabFile   = document.getElementById('tab-file');
+    var tabUrl    = document.getElementById('tab-url');
+    var panelFile = document.getElementById('panel-file');
+    var panelUrl  = document.getElementById('panel-url');
+    if (!tabUrl) return;
+    tabUrl.classList.add('active');
+    tabUrl.setAttribute('aria-selected', 'true');
+    if (tabFile) { tabFile.classList.remove('active'); tabFile.setAttribute('aria-selected', 'false'); }
+    if (panelUrl)  panelUrl.style.display  = '';
+    if (panelFile) panelFile.style.display = 'none';
   }
 
   /* ── Fetch image from URL with CORS fallback ── */
@@ -158,15 +185,10 @@
       history.replaceState(null, '', window.location.pathname + window.location.hash);
     } catch (e) { /* ignore in sandboxed environments */ }
 
-    /* Populate the input with the URL so the user can see what was imported */
+    /* Switch to the URL tab and pre-fill the input */
+    switchToUrlTab();
     var input = document.getElementById('url-import-input');
     if (input) input.value = importUrl;
-
-    /* Open the URL import row so it's visible */
-    var row = document.getElementById('url-import-row');
-    if (row) row.style.display = '';
-    var toggle = document.getElementById('url-import-toggle');
-    if (toggle) toggle.setAttribute('aria-expanded', 'true');
 
     triggerUrlImport(importUrl);
   }
