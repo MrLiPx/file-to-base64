@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Base64 to Image Converter — Free, Private & Instant</title>
+  <title>Base64 to Image Converter — Free, Private &amp; Instant</title>
   <meta name="description" content="Paste any Base64 string and instantly preview and download the image. Auto-detects PNG, JPEG, GIF, WebP, SVG. Runs 100% in your browser — no server, no signup."/>
   <meta name="keywords" content="base64 to image, base64 decoder, decode base64 image, data url to image, base64 png jpeg"/>
   <meta name="author" content="MrLiPx"/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/app/base64-to-image/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://mrlipx.github.io/base64-image-converter/app/base64-to-image/"/>
-  <meta property="og:title" content="Base64 to Image Converter — Free & Private"/>
+  <meta property="og:title" content="Base64 to Image Converter — Free &amp; Private"/>
   <meta property="og:description" content="Paste any Base64 string and instantly preview and download your image. 100% private, runs in-browser."/>
   <meta property="og:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
   <meta property="og:site_name" content="Base64 Image Converter"/>
@@ -18,19 +18,16 @@
   <meta name="twitter:title" content="Base64 to Image Converter"/>
   <meta name="twitter:description" content="Paste Base64, get image instantly. 100% private."/>
   <meta name="twitter:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
-  
-  
-  
-  <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
   <meta name="theme-color" content="#0f172a"/>
   <link rel="icon" href="/base64-image-converter/assets/logo.png" type="image/png"/>
   <link rel="apple-touch-icon" href="/base64-image-converter/assets/logo.png"/>
+  <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://cdn-uicons.flaticon.com"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
-  <link rel="stylesheet" href="/base64-image-converter/assets/css/styles.css"/>
+  <link rel="stylesheet" href="/base64-image-converter/assets/styles_Z5jCVG3c.css"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Base64 to Image Converter","url":"https://mrlipx.github.io/base64-image-converter/app/base64-to-image/","description":"Paste any Base64 string and instantly preview and download the image. Supports PNG, JPEG, GIF, WebP, SVG. 100% private.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"MrLiPx","url":"https://github.com/MrLiPx"}}</script>
 </head>
 <body>
@@ -39,7 +36,6 @@
 <main id="main" tabindex="-1">
 <div class="wrap">
 
-  <!-- Breadcrumb -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/base64-image-converter/">Home</a>
     <i class="fi fi-rr-angle-right" aria-hidden="true"></i>
@@ -62,7 +58,6 @@
     </div>
   </div>
 
-  <!-- Converter -->
   <div class="card" role="region" aria-label="Base64 to image converter">
     <div class="card-accent-bar" aria-hidden="true"></div>
     <div class="card-header">
@@ -85,8 +80,8 @@
         aria-label="Base64 input string"
       ></textarea>
       <div class="msg-box msg-error" id="err-box" role="alert" aria-live="polite">
-        <i class="fi fi-rr-cross-circle" aria-hidden="true"></i>
-        <span>Invalid Base64 — check your input. Ensure it contains only valid Base64 characters and represents a supported image format.</span>
+        <i class="fi fi-rr-cross" aria-hidden="true"></i>
+        <span>Invalid Base64 — check your input and ensure it represents a supported image format.</span>
       </div>
     </div>
 
@@ -102,6 +97,9 @@
       </button>
     </div>
 
+    <!-- Blob URL link -->
+    <div id="blob-link-wrap" aria-label="Blob preview URL" style="display:none"></div>
+
     <div class="divider" aria-hidden="true"></div>
 
     <div>
@@ -113,7 +111,7 @@
         <div class="preview-empty" id="preview-ph" aria-hidden="true">
           <i class="fi fi-rr-picture" aria-hidden="true"></i>
           <p>Converted image appears here</p>
-          <small>Supports PNG, JPEG, GIF, WebP, SVG, BMP, ICO</small>
+          <small>Supports PNG, JPEG, GIF, WebP, SVG, BMP, ICO — click image to open in new tab</small>
         </div>
         <div class="img-meta-bar" id="img-meta" role="status" aria-label="Image metadata">
           <span id="m-dim"></span>
@@ -124,7 +122,6 @@
     </div>
   </div>
 
-  <!-- Features -->
   <section aria-labelledby="feat-h">
     <div class="section-head">
       <h2 id="feat-h">How it works</h2>
@@ -154,21 +151,34 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section aria-labelledby="faq-h">
     <div class="section-head">
       <h2 id="faq-h">Frequently asked questions</h2>
     </div>
     <div class="faq" role="list">
-      <div class="faq-item" role="listitem"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">What is Base64 image encoding?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button><div class="faq-body"><div class="faq-ans">Base64 is a binary-to-text encoding scheme representing binary data using 64 printable ASCII characters. For images, it lets you embed image data directly in HTML, CSS, or JSON without a separate file request.</div></div></div>
-      <div class="faq-item" role="listitem"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Which formats are supported?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button><div class="faq-body"><div class="faq-ans">PNG, JPEG, GIF (animated), WebP, SVG, BMP, and ICO. Format is auto-detected from the Data URL mime type or Base64 magic byte prefixes (e.g. <code>/9j/</code> = JPEG, <code>iVBOR</code> = PNG, <code>R0lGOD</code> = GIF).</div></div></div>
-      <div class="faq-item" role="listitem"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">How does the blob: preview URL work?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button><div class="faq-body"><div class="faq-ans">The Base64 string is decoded to a <code>Blob</code> object in your browser, then <code>URL.createObjectURL()</code> creates a temporary <code>blob:https://mrlipx.github.io/…</code> URL for the preview image. No data leaves your device. The URL is revoked when you clear or navigate away.</div></div></div>
-      <div class="faq-item" role="listitem"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is there a file size limit?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button><div class="faq-body"><div class="faq-ans">No hard limit — everything runs in your browser. Very large strings (20 MB+) may take a second on slower devices. Your browser's available memory is the only real constraint.</div></div></div>
-      <div class="faq-item" role="listitem"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Can I also convert images to Base64?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button><div class="faq-body"><div class="faq-ans">Yes — use the <a href="/base64-image-converter/app/image-to-base64/">Image → Base64</a> tool. Upload, drag-and-drop, or paste from clipboard, then copy the output with one click.</div></div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">What is Base64 image encoding?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">Base64 is a binary-to-text encoding scheme representing binary data using 64 printable ASCII characters. For images, it lets you embed image data directly in HTML, CSS, or JSON without a separate file request.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Which formats are supported?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">PNG, JPEG, GIF (animated), WebP, SVG, BMP, and ICO. Format is auto-detected from the Data URL mime type or Base64 magic byte prefixes (e.g. <code>/9j/</code> = JPEG, <code>iVBOR</code> = PNG, <code>R0lGOD</code> = GIF).</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">How does the blob: preview URL work?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">The Base64 string is decoded to a <code>Blob</code> object in your browser, then <code>URL.createObjectURL()</code> creates a temporary <code>blob:https://…</code> URL for the preview. No data leaves your device. Click the blob link or the preview image to open in a new tab.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is there a file size limit?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">No hard limit — everything runs in your browser. Very large strings (20 MB+) may take a second on slower devices. Your browser's available memory is the only real constraint.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Can I also convert images to Base64?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">Yes — use the <a href="/base64-image-converter/app/image-to-base64/">Image → Base64</a> tool. Upload, drag-and-drop, or paste from clipboard, then copy the output with one click.</div></div>
+      </div>
     </div>
   </section>
 
-  <!-- Switch tool + donate -->
   <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
     <a href="/base64-image-converter/app/image-to-base64/" class="btn btn-secondary" style="flex:1;justify-content:center;min-width:200px">
       <i class="fi fi-rr-upload" aria-hidden="true"></i> Switch to Image → Base64
@@ -183,7 +193,7 @@
 
 <div id="site-footer-mount"></div>
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-<script src="/base64-image-converter/assets/js/main.js"></script>
-<script src="/base64-image-converter/assets/js/converter.js"></script>
+<script src="/base64-image-converter/assets/core_YwCdbQMX.js"></script>
+<script src="/base64-image-converter/assets/decoder_E2DdEdTI.js"></script>
 </body>
 </html>

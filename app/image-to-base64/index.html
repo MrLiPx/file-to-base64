@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Image to Base64 Converter — Free, Private & Instant</title>
+  <title>Image to Base64 Converter — Free, Private &amp; Instant</title>
   <meta name="description" content="Upload, drag-and-drop, or paste any image and get its Base64 string or Data URL instantly. One-click copy. Runs 100% in your browser — no server, no signup."/>
   <meta name="keywords" content="image to base64, encode image base64, base64 encoder, data url generator, png to base64, jpeg to base64"/>
   <meta name="author" content="MrLiPx"/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/app/image-to-base64/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://mrlipx.github.io/base64-image-converter/app/image-to-base64/"/>
-  <meta property="og:title" content="Image to Base64 Converter — Free & Private"/>
+  <meta property="og:title" content="Image to Base64 Converter — Free &amp; Private"/>
   <meta property="og:description" content="Upload any image and get its Base64 string or Data URL instantly. 100% private, runs in-browser."/>
   <meta property="og:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-image-to-base64.png"/>
   <meta property="og:site_name" content="Base64 Image Converter"/>
@@ -18,19 +18,16 @@
   <meta name="twitter:title" content="Image to Base64 Converter"/>
   <meta name="twitter:description" content="Upload any image, get Base64 instantly. 100% private."/>
   <meta name="twitter:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-image-to-base64.png"/>
-  
-  
-  
-  <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
   <meta name="theme-color" content="#0f172a"/>
   <link rel="icon" href="/base64-image-converter/assets/logo.png" type="image/png"/>
   <link rel="apple-touch-icon" href="/base64-image-converter/assets/logo.png"/>
+  <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://cdn-uicons.flaticon.com"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
-  <link rel="stylesheet" href="/base64-image-converter/assets/css/styles.css"/>
+  <link rel="stylesheet" href="/base64-image-converter/assets/styles_Z5jCVG3c.css"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image to Base64 Converter","url":"https://mrlipx.github.io/base64-image-converter/app/image-to-base64/","description":"Upload any image and get its Base64 string or Data URL instantly. 100% private, runs in-browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"MrLiPx","url":"https://github.com/MrLiPx"}}</script>
 </head>
 <body>
@@ -57,7 +54,7 @@
     <div class="hero-chips" role="list">
       <span class="chip" role="listitem"><span class="chip-dot"></span>No upload to server</span>
       <span class="chip" role="listitem"><i class="fi fi-rr-paste" aria-hidden="true"></i> Paste from clipboard</span>
-      <span class="chip" role="listitem"><i class="fi fi-rr-code" aria-hidden="true"></i> Data URL or Raw Base64</span>
+      <span class="chip" role="listitem"><i class="fi fi-rr-code-window" aria-hidden="true"></i> Data URL or Raw Base64</span>
     </div>
   </div>
 
@@ -77,7 +74,10 @@
       <div class="dz-title">Drop image here, or <span class="dz-link">click to browse</span></div>
       <div class="dz-sub">PNG, JPEG, GIF, WebP, SVG, BMP, ICO &mdash; max 10 MB &mdash; or paste from clipboard</div>
     </div>
-    <img id="dz-thumb" class="dz-thumb" alt="Thumbnail of selected image"/>
+    <img id="dz-thumb" class="dz-thumb" alt="Thumbnail of selected image" style="display:none"/>
+
+    <!-- Blob URL link (shown after image loaded) -->
+    <div id="blob-link-wrap" aria-label="Blob preview URL" style="display:none"></div>
 
     <div style="margin-top:1rem">
       <span class="field-label" id="fmt-label">Output Format</span>
@@ -88,14 +88,14 @@
         </label>
         <label data-val="raw">
           <input type="radio" name="fmt" value="raw" onchange="setFmt('raw')" aria-label="Raw Base64 format"/>
-          <i class="fi fi-rr-code" aria-hidden="true"></i> Raw Base64
+          <i class="fi fi-rr-code-window" aria-hidden="true"></i> Raw Base64
         </label>
       </div>
     </div>
 
     <div class="btns" role="toolbar" aria-label="Copy and clear actions">
       <button class="btn btn-primary" onclick="copyOutput()" id="copy-btn" type="button" disabled aria-label="Copy Base64 to clipboard">
-        <i class="fi fi-rr-copy-alt" aria-hidden="true"></i> Copy to Clipboard
+        <i class="fi fi-rr-copy" aria-hidden="true"></i> Copy to Clipboard
       </button>
       <button class="btn btn-ghost" onclick="clearUploader()" id="clear-btn" type="button" disabled aria-label="Clear image and output">
         <i class="fi fi-rr-trash" aria-hidden="true"></i> Clear
@@ -111,7 +111,6 @@
     </div>
   </div>
 
-  <!-- Features -->
   <section aria-labelledby="feat-h2">
     <div class="section-head">
       <h2 id="feat-h2">Why use this tool?</h2>
@@ -124,12 +123,12 @@
         <p>Hit <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">V</kbd> anywhere on the page to paste a copied image directly — no file dialog needed.</p>
       </article>
       <article class="feat-card" role="listitem">
-        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-code"></i></div>
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-code-window"></i></div>
         <h3>Data URL or Raw Base64</h3>
         <p>Toggle between a full <code>data:image/png;base64,…</code> URL or just the raw Base64 — whichever your project needs.</p>
       </article>
       <article class="feat-card" role="listitem">
-        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-copy-alt"></i></div>
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-copy"></i></div>
         <h3>One-click copy</h3>
         <p>Copy the entire output to clipboard instantly. Uses <code>navigator.clipboard</code> API with a graceful fallback.</p>
       </article>
@@ -155,7 +154,7 @@
 
 <div id="site-footer-mount"></div>
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-<script src="/base64-image-converter/assets/js/main.js"></script>
-<script src="/base64-image-converter/assets/js/uploader.js"></script>
+<script src="/base64-image-converter/assets/core_YwCdbQMX.js"></script>
+<script src="/base64-image-converter/assets/encoder_JKX22aUs.js"></script>
 </body>
 </html>
