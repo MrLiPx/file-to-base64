@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /base64-image-converter/
+Disallow: /base64-image-converter/404.html
+
+Sitemap: https://mrlipx.github.io/base64-image-converter/sitemap.xml

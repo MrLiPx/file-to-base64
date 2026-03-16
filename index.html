@@ -2,280 +2,304 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Base64 to Image Converter — Free, Private, Instant</title>
-  <meta name="description" content="Free online Base64 to Image converter. Instantly convert Base64 strings to PNG, JPEG, GIF, WebP, SVG and more. Preview and download securely in browser — no server, no signup."/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Base64 to Image Converter — Free, Private & Instant</title>
+  <meta name="description" content="Free online Base64 to Image converter. Paste any Base64 string and instantly preview and download PNG, JPEG, GIF, WebP, SVG images. 100% private — no server, no signup, no tracking."/>
+  <meta name="keywords" content="base64 to image, base64 decoder, base64 converter, decode base64 image, data url to image, base64 png, base64 jpeg"/>
+  <meta name="author" content="MrLiPx"/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/"/>
-  <meta property="og:title" content="Base64 to Image Converter"/>
-  <meta property="og:description" content="Free online Base64 to Image converter. Instantly convert Base64 strings to images. Private, fast, no signup."/>
-  <meta property="og:image" content="https://mrlipx.github.io/base64-image-converter/image/base64-to-image.png"/>
-  <meta property="og:url" content="https://mrlipx.github.io/base64-image-converter/"/>
-  <meta property="og:type" content="website"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Base64 to Image Converter"/>
-  <meta name="twitter:description" content="Free, private Base64 to Image converter. Runs entirely in your browser."/>
-  <meta name="twitter:image" content="https://mrlipx.github.io/base64-image-converter/image/base64-to-image.png"/>
-  <link rel="icon" href="/base64-image-converter/favicon.ico"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://mrlipx.github.io/base64-image-converter/"/>
+  <meta property="og:title"       content="Base64 to Image Converter — Free & Private"/>
+  <meta property="og:description" content="Paste any Base64 string and instantly preview and download your image. Runs 100% in your browser — no server, no signup."/>
+  <meta property="og:image"       content="https://mrlipx.github.io/base64-image-converter/assets/img/og-base64-to-image.png"/>
+  <meta property="og:image:width"  content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:site_name"   content="Base64 Image Converter"/>
+  <meta property="og:locale"      content="en_US"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Base64 to Image Converter"/>
+  <meta name="twitter:description" content="Paste any Base64 string and instantly preview & download your image. 100% private, runs in-browser."/>
+  <meta name="twitter:image"       content="https://mrlipx.github.io/base64-image-converter/assets/img/og-base64-to-image.png"/>
+
+  <!-- Favicons -->
+  <link rel="icon"             href="/base64-image-converter/favicon.ico" sizes="any"/>
+  <link rel="icon"             href="/base64-image-converter/favicon-32x32.png" type="image/png"/>
   <link rel="apple-touch-icon" href="/base64-image-converter/apple-touch-icon.png"/>
-  <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
+  <link rel="manifest"         href="/base64-image-converter/site.webmanifest"/>
+  <meta name="theme-color"     content="#0f172a"/>
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="/base64-image-converter/styles.css"/>
+  <link rel="preconnect" href="https://cdn-uicons.flaticon.com"/>
+
+  <!-- Icons & fonts -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
+  <link rel="stylesheet" href="/base64-image-converter/assets/css/styles.css"/>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Base64 to Image Converter",
+    "url":"https://mrlipx.github.io/base64-image-converter/",
+    "description":"Free online tool to convert Base64 strings to viewable and downloadable images. Works with PNG, JPEG, GIF, WebP, SVG. Fully private, no server uploads.",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires JavaScript",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "author":{"@type":"Person","name":"MrLiPx","url":"https://github.com/MrLiPx"},
+    "license":"https://opensource.org/licenses/MIT",
+    "keywords":"base64,image converter,base64 decoder,data url,png,jpeg,webp"
+  }
+  </script>
 </head>
 <body>
-<header class="site-header">
+
+<header class="site-header" role="banner">
   <div class="header-inner">
-    <a href="/base64-image-converter/" class="site-logo">
-      <div class="logo-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-      </div>
-      Base64 Converter
+    <a href="/base64-image-converter/" class="site-logo" aria-label="Base64 Converter home">
+      <img src="/base64-image-converter/assets/main-logo.png" alt="" width="32" height="32"/>
+      <span>Base64 Converter</span>
     </a>
-    <nav class="site-nav">
-      <a href="/base64-image-converter/" class="active">B64 → Image</a>
-      <a href="/base64-image-converter/image-to-base64/">Image → B64</a>
-      <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener" class="nav-github">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        <span>GitHub</span>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/base64-image-converter/" class="nav-link" data-page="home">
+        <i class="fi fi-rr-picture" aria-hidden="true"></i> B64 → Image
+      </a>
+      <a href="/base64-image-converter/image-to-base64/" class="nav-link" data-page="image-to-base64">
+        <i class="fi fi-rr-upload" aria-hidden="true"></i> Image → B64
+      </a>
+      <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener noreferrer" class="nav-link nav-github" aria-label="View source on GitHub">
+        <i class="fi fi-brands-github" aria-hidden="true"></i>
+        <span class="gh-label">GitHub</span>
       </a>
     </nav>
   </div>
 </header>
-<main>
-<div class="container">
+
+<main id="main" tabindex="-1">
+<div class="wrap">
+
+  <!-- Hero -->
   <div class="hero">
-    <div class="hero-eyebrow">
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+    <div class="hero-eyebrow" aria-label="Free and open source">
+      <i class="fi fi-rr-star" aria-hidden="true"></i>
       Free &amp; open source
     </div>
     <h1>Base64 to Image Converter</h1>
-    <p>Paste any Base64 string and instantly preview and download your image. No server, no account — everything runs privately in your browser.</p>
-    <div class="hero-badges">
-      <span class="badge"><span class="badge-dot"></span>100% local processing</span>
-      <span class="badge">PNG · JPEG · GIF · WebP · SVG · BMP · ICO</span>
-      <span class="badge">No file size limit</span>
+    <p class="hero-desc">Paste any Base64 string and instantly preview and download your image. Runs 100% in your browser — no server, no account, no tracking.</p>
+    <div class="hero-chips" role="list" aria-label="Features">
+      <span class="chip" role="listitem"><span class="chip-dot" aria-hidden="true"></span>100% local — fully private</span>
+      <span class="chip" role="listitem"><i class="fi fi-rr-file-image" aria-hidden="true"></i> PNG · JPEG · GIF · WebP · SVG</span>
+      <span class="chip" role="listitem"><i class="fi fi-rr-bolt" aria-hidden="true"></i> Auto-converts on paste</span>
     </div>
   </div>
-  <div class="card">
-    <div class="card-title">
-      <div class="card-title-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/></svg>
+
+  <!-- Converter card -->
+  <div class="card" role="region" aria-label="Base64 converter">
+    <div class="card-accent-bar" aria-hidden="true"></div>
+    <div class="card-header">
+      <div class="card-icon" aria-hidden="true"><i class="fi fi-rr-picture"></i></div>
+      <div>
+        <div class="card-title">Convert Base64 → Image</div>
+        <div class="card-subtitle">Paste raw Base64 or a full Data URL</div>
       </div>
-      Convert Base64 → Image
     </div>
+
+    <div class="field">
+      <div class="field-header">
+        <label class="field-label" for="b64input">Base64 Input</label>
+        <span class="field-hint" aria-label="Keyboard shortcut">
+          <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">Enter</kbd> to convert
+        </span>
+      </div>
+      <textarea
+        id="b64input"
+        placeholder="Paste your Base64 string here… data:image/png;base64,iVBOR… or raw Base64"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        aria-label="Base64 input"
+      ></textarea>
+      <div class="msg-box msg-error" id="err-box" role="alert" aria-live="polite">
+        <i class="fi fi-rr-cross-circle" aria-hidden="true"></i>
+        <span>Invalid Base64 string — please check your input. Make sure it contains only valid Base64 characters.</span>
+      </div>
+    </div>
+
+    <div class="btns" role="toolbar" aria-label="Converter actions">
+      <button class="btn btn-primary" onclick="convertB64()" type="button" aria-label="Convert Base64 to image">
+        <i class="fi fi-rr-refresh" aria-hidden="true"></i> Convert
+      </button>
+      <button class="btn btn-secondary" onclick="downloadImage()" id="dl-btn" type="button" disabled aria-label="Download converted image">
+        <i class="fi fi-rr-download" aria-hidden="true"></i> Download Image
+      </button>
+      <button class="btn btn-ghost" onclick="clearConverter()" type="button" aria-label="Clear input and preview">
+        <i class="fi fi-rr-trash" aria-hidden="true"></i> Clear
+      </button>
+    </div>
+
+    <div class="divider" aria-hidden="true"></div>
+
     <div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
-        <label class="field-label" for="b64input" style="margin:0">Base64 Input</label>
-        <span style="font-size:.75rem;color:var(--text-faint)">Tip: <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">Enter</kbd> to convert</span>
+      <div class="preview-header">
+        <span class="field-label">Preview</span>
+        <span class="preview-format-badge" id="fmt-badge" aria-live="polite"></span>
       </div>
-      <textarea id="b64input" placeholder="Paste your Base64 string here… accepts raw Base64 or full Data URLs (data:image/png;base64,…)" spellcheck="false" autocomplete="off"></textarea>
-      <div class="error-box" id="error-box">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Invalid Base64 string — check your input and try again.
-      </div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="convertB64()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        Convert
-      </button>
-      <button class="btn btn-secondary" onclick="downloadImage()" id="download-btn" disabled>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Image
-      </button>
-      <button class="btn btn-ghost" onclick="clearAll()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-        Clear
-      </button>
-    </div>
-    <div class="divider"></div>
-    <div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
-        <label class="field-label" style="margin:0">Preview</label>
-        <span id="format-badge" style="display:none;font-size:.75rem;font-family:var(--font-mono);background:var(--slate-100);border:1px solid var(--border);border-radius:4px;padding:.15rem .5rem;color:var(--text-muted)"></span>
-      </div>
-      <div class="preview-area" id="preview-area">
-        <div class="preview-placeholder" id="preview-placeholder">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 00-2.828 0L6 21"/></svg>
+      <div class="preview-area" id="preview-area" role="img" aria-label="Image preview area">
+        <div class="preview-empty" id="preview-ph" aria-hidden="true">
+          <i class="fi fi-rr-picture" aria-hidden="true"></i>
           <p>Converted image appears here</p>
           <small>Supports PNG, JPEG, GIF, WebP, SVG, BMP, ICO</small>
         </div>
-      </div>
-      <div class="img-info" id="img-info">
-        <span id="info-dim"></span>
-        <span id="info-type"></span>
-        <span id="info-size"></span>
+        <div class="img-meta-bar" id="img-meta" role="status" aria-label="Image metadata">
+          <span id="m-dim"></span>
+          <span id="m-type"></span>
+          <span id="m-size"></span>
+        </div>
       </div>
     </div>
   </div>
-  <section>
+
+  <!-- Features -->
+  <section aria-labelledby="features-heading">
     <div class="section-head">
-      <h2>Everything you need</h2>
+      <h2 id="features-heading">Everything you need</h2>
       <p>Simple, fast, and completely private Base64 to image conversion</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></div>
+    <div class="features" role="list">
+      <article class="feat-card" role="listitem">
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-file-image"></i></div>
         <h3>All major formats</h3>
-        <p>PNG, JPEG, GIF (animated), WebP, SVG, BMP and ICO — format auto-detected from mime type or magic bytes.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14a1 1 0 01-.78-1.63l9.9-10.2a.5.5 0 01.86.46l-1.92 6.02A1 1 0 0013 10h7a1 1 0 01.78 1.63l-9.9 10.2a.5.5 0 01-.86-.46l1.92-6.02A1 1 0 0011 14z"/></svg></div>
-        <h3>Instant preview</h3>
-        <p>See your image immediately. Auto-converts on paste. Displays pixel dimensions, mime type, and estimated file size.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <p>PNG, JPEG, GIF (animated), WebP, SVG, BMP and ICO — format auto-detected from the Data URL header or Base64 magic bytes.</p>
+      </article>
+      <article class="feat-card" role="listitem">
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-bolt"></i></div>
+        <h3>Instant &amp; auto-converts</h3>
+        <p>Automatically converts when you paste. See your image and its dimensions, type, and size immediately — no waiting.</p>
+      </article>
+      <article class="feat-card" role="listitem">
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-shield-check"></i></div>
         <h3>Completely private</h3>
-        <p>Your data never leaves your browser. All processing is done locally using standard Web APIs — zero server uploads.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <p>Your data never leaves your browser. Uses <code>URL.createObjectURL()</code> so no data is ever transmitted anywhere.</p>
+      </article>
+      <article class="feat-card" role="listitem">
+        <div class="feat-icon" aria-hidden="true"><i class="fi fi-rr-download"></i></div>
         <h3>One-click download</h3>
-        <p>Download the converted image with the correct filename and extension automatically applied.</p>
-      </div>
+        <p>Download the image with the correct filename and extension. The original image quality is perfectly preserved.</p>
+      </article>
     </div>
   </section>
-  <section>
+
+  <!-- How to use -->
+  <section aria-labelledby="howto-heading">
     <div class="section-head">
-      <h2>How to use</h2>
-      <p>Convert your Base64 string in three steps</p>
+      <h2 id="howto-heading">How to use</h2>
+      <p>Convert your Base64 string in three simple steps</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
+    <div class="steps" role="list">
+      <article class="step-card" role="listitem">
+        <div class="step-num" aria-hidden="true">1</div>
         <h3>Paste your Base64</h3>
-        <p>Copy a Base64 string and paste it into the input. Both raw Base64 and full Data URLs are accepted.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Click Convert</h3>
-        <p>Hit Convert or press <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">Enter</kbd>. The image renders instantly with dimension info shown below.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Download or share</h3>
-        <p>Click Download Image to save the file, or right-click the preview to copy it or open in a new tab.</p>
-      </div>
+        <p>Copy a Base64 string and paste it in. Both raw Base64 and full Data URLs (<code>data:image/png;base64,…</code>) are accepted — it auto-detects.</p>
+      </article>
+      <article class="step-card" role="listitem">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>Preview instantly</h3>
+        <p>The image renders automatically on paste. Or press <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">Enter</kbd>. Pixel dimensions, format, and file size are shown below.</p>
+      </article>
+      <article class="step-card" role="listitem">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>Download or inspect</h3>
+        <p>Click Download Image to save the file locally. Right-click the preview to open it in a new tab or copy it directly.</p>
+      </article>
     </div>
   </section>
-  <section>
+
+  <!-- FAQ -->
+  <section aria-labelledby="faq-heading">
     <div class="section-head">
-      <h2>Frequently asked questions</h2>
+      <h2 id="faq-heading">Frequently asked questions</h2>
       <p>Everything you need to know about Base64 to image conversion</p>
     </div>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">What is Base64 image encoding?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters. When applied to images, it lets you embed image data directly inside HTML, CSS, or JSON — without a separate file request.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Which image formats are supported?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">PNG, JPEG/JPG, GIF (including animated), WebP, SVG, BMP and ICO are all supported. The format is auto-detected from the Data URL mime type, or inferred from Base64 magic byte prefixes when a raw string is provided.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Is there a file size limit?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">There is no hard limit since all processing happens locally in your browser. Very large strings (20 MB+) may take a moment on slower devices. Your browser's available memory is the only real constraint.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Is my data safe?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Completely. All conversion happens inside your browser using JavaScript. No data is ever sent to any server. Verify this by checking the browser Network tab — you'll see zero requests when you click Convert.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Can I also convert images to Base64?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes — use the <a href="/base64-image-converter/image-to-base64/">Image → Base64</a> tool. Upload or drag-and-drop any image and get the Base64 string or full Data URL with one-click copy.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Why use Base64 for images?<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Base64 images are useful for embedding images directly in HTML/CSS (reducing HTTP requests), creating self-contained email templates, working with APIs that transport image data as JSON, building offline apps, and debugging image implementations.</div></div></div>
+    <div class="faq" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          What is Base64 image encoding?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII characters. When applied to images it lets you embed image data directly inside HTML, CSS, or JSON without a separate file request — useful for reducing HTTP round-trips in small icons, email templates, and data URIs.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          Which image formats are supported?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">PNG, JPEG/JPG, GIF (including animated), WebP, SVG, BMP, and ICO are all supported. The format is auto-detected from the Data URL mime type (e.g. <code>data:image/webp;base64,…</code>), or inferred from magic byte prefixes when you paste a raw Base64 string.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          Is there a file size limit?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">There is no hard limit because all processing runs locally in your browser. Very large strings (20 MB+) may take a second or two on slower devices. The only real constraint is your browser's available memory. For best performance, consider compressing large images before encoding.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          Is my data safe? How does the preview work?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">Completely safe. The Base64 string is decoded into a <code>Blob</code> entirely in your browser, and then <code>URL.createObjectURL()</code> creates a temporary <code>blob:</code> URL for the preview (e.g. <code>blob:https://mrlipx.github.io/abc123…</code>). No data is ever sent to any server. You can verify by opening the browser Network tab — zero requests are made when you convert.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          Can I also convert images to Base64?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">Yes — use the <a href="/base64-image-converter/image-to-base64/">Image → Base64</a> tool. Upload or drag &amp; drop any image and choose between a full Data URL or raw Base64 output, then copy to clipboard with one click. You can also paste images directly from your clipboard.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+          Why use Base64 for images?
+          <i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="faq-body" role="region"><div class="faq-ans">Base64 images are useful for: embedding small images directly in HTML/CSS to eliminate HTTP requests, creating self-contained email templates, working with APIs that transport image data as JSON strings, building offline-capable web apps, and debugging image implementations where you need to quickly inspect what a Base64 string actually represents.</div></div>
+      </div>
+
     </div>
   </section>
+
 </div>
 </main>
-<footer class="site-footer">
+
+<footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
-    <span>© 2026 Base64 Image Converter &mdash; <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener">Open source (MIT)</a></span>
-    <div class="footer-links">
+    <span>© 2026 Base64 Image Converter — <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener noreferrer"><i class="fi fi-brands-github" aria-hidden="true"></i> Open source (MIT)</a></span>
+    <nav class="footer-links" aria-label="Footer navigation">
       <a href="/base64-image-converter/image-to-base64/">Image → Base64</a>
       <a href="/base64-image-converter/privacy/">Privacy</a>
       <a href="/base64-image-converter/terms/">Terms</a>
-    </div>
+    </nav>
   </div>
 </footer>
-<div id="toast"></div>
-<script>
-  let currentDataUrl = null;
-  function convertB64() {
-    const raw = document.getElementById('b64input').value.trim();
-    const errEl = document.getElementById('error-box');
-    errEl.classList.remove('visible');
-    if (!raw) { showToast('Paste a Base64 string first.'); return; }
-    let dataUrl = raw;
-    if (!dataUrl.startsWith('data:')) {
-      const clean = dataUrl.replace(/\s+/g,'');
-      dataUrl = 'data:' + detectMime(clean) + ';base64,' + clean;
-    }
-    const img = new Image();
-    img.onload = function() {
-      currentDataUrl = dataUrl;
-      renderPreview(img, dataUrl);
-      document.getElementById('download-btn').disabled = false;
-      showToast('✓ Converted successfully');
-    };
-    img.onerror = function() { errEl.classList.add('visible'); clearPreview(); };
-    img.src = dataUrl;
-  }
-  function detectMime(b64) {
-    if (b64.startsWith('/9j/')) return 'image/jpeg';
-    if (b64.startsWith('R0lGOD')) return 'image/gif';
-    if (b64.startsWith('UklGR')) return 'image/webp';
-    if (b64.startsWith('PHN2Z') || b64.startsWith('PD94b')) return 'image/svg+xml';
-    if (b64.startsWith('Qk0')) return 'image/bmp';
-    return 'image/png';
-  }
-  function renderPreview(img, dataUrl) {
-    const area = document.getElementById('preview-area');
-    const ph = document.getElementById('preview-placeholder');
-    const info = document.getElementById('img-info');
-    const badge = document.getElementById('format-badge');
-    const old = area.querySelector('img'); if (old) old.remove();
-    ph.style.display = 'none';
-    area.classList.add('has-image');
-    img.style.cssText = 'max-width:100%;max-height:500px;display:block;margin:1rem auto;border-radius:6px;';
-    area.appendChild(img);
-    const mime = dataUrl.split(';')[0].split(':')[1] || 'image/png';
-    const ext = mime.split('/')[1].replace('jpeg','JPG').replace('svg+xml','SVG').toUpperCase();
-    const b64part = dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl;
-    const sizeKb = Math.round(b64part.length * 0.75 / 1024);
-    badge.textContent = ext; badge.style.display = '';
-    document.getElementById('info-dim').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + img.naturalWidth + ' \xd7 ' + img.naturalHeight + 'px';
-    document.getElementById('info-type').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> ' + mime;
-    document.getElementById('info-size').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> ~' + (sizeKb < 1024 ? sizeKb + ' KB' : (sizeKb/1024).toFixed(1) + ' MB');
-    info.classList.add('visible');
-  }
-  function clearPreview() {
-    const area = document.getElementById('preview-area');
-    const old = area.querySelector('img'); if (old) old.remove();
-    document.getElementById('preview-placeholder').style.display = '';
-    document.getElementById('img-info').classList.remove('visible');
-    document.getElementById('format-badge').style.display = 'none';
-    area.classList.remove('has-image');
-    currentDataUrl = null;
-    document.getElementById('download-btn').disabled = true;
-  }
-  function downloadImage() {
-    if (!currentDataUrl) return;
-    const mime = currentDataUrl.split(';')[0].split(':')[1] || 'image/png';
-    const ext = mime.split('/')[1].replace('jpeg','jpg').replace('svg+xml','svg');
-    const a = document.createElement('a');
-    a.href = currentDataUrl; a.download = 'image.' + ext; a.click();
-    showToast('\u2b07 Downloading\u2026');
-  }
-  function clearAll() {
-    document.getElementById('b64input').value = '';
-    document.getElementById('error-box').classList.remove('visible');
-    clearPreview();
-  }
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-  let toastTimer;
-  function showToast(msg) {
-    clearTimeout(toastTimer);
-    const t = document.getElementById('toast');
-    t.textContent = msg; t.classList.add('show');
-    toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
-  }
-  document.getElementById('b64input').addEventListener('keydown', e => {
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); convertB64(); }
-  });
-  document.getElementById('b64input').addEventListener('paste', () => { setTimeout(convertB64, 80); });
-</script>
+
+<div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="/base64-image-converter/assets/js/main.js"></script>
+<script src="/base64-image-converter/assets/js/converter.js"></script>
 </body>
 </html>

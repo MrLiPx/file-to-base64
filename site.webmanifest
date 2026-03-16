@@ -1,15 +1,14 @@
 {
   "name": "Base64 Image Converter",
   "short_name": "B64 Converter",
-  "description": "Free online Base64 to Image converter. Convert Base64 strings to PNG, JPEG, GIF, WebP, SVG and more — or convert images back to Base64. Private, fast, no signup.",
+  "description": "Free, private Base64 to Image and Image to Base64 converter. Runs 100% in your browser.",
   "start_url": "/base64-image-converter/",
   "scope": "/base64-image-converter/",
   "display": "standalone",
-  "background_color": "#f5f4f0",
-  "theme_color": "#1c1917",
+  "background_color": "#f8f9fc",
+  "theme_color": "#0f172a",
   "icons": [
-    { "src": "/base64-image-converter/favicon-16x16.png", "sizes": "16x16", "type": "image/png" },
-    { "src": "/base64-image-converter/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/base64-image-converter/assets/main-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
     { "src": "/base64-image-converter/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/base64-image-converter/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
   ]

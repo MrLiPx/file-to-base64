@@ -2,106 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Privacy Policy — Base64 Image Converter</title>
-  <meta name="description" content="Privacy policy for Base64 Image Converter — open source, no tracking, your data stays in your browser."/>
+  <meta name="description" content="Privacy policy for Base64 Image Converter. We collect no personal data, perform no server-side processing, and have no tracking. Your images stay in your browser."/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/privacy/"/>
-  <link rel="icon" href="/base64-image-converter/favicon.ico"/>
+  <link rel="icon" href="/base64-image-converter/favicon.ico" sizes="any"/>
+  <link rel="apple-touch-icon" href="/base64-image-converter/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0f172a"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="/base64-image-converter/styles.css"/>
+  <link rel="preconnect" href="https://cdn-uicons.flaticon.com"/>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
+  <link rel="stylesheet" href="/base64-image-converter/assets/css/styles.css"/>
 </head>
 <body>
-<header class="site-header">
+<header class="site-header" role="banner">
   <div class="header-inner">
-    <a href="/base64-image-converter/" class="site-logo">
-      <div class="logo-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-      </div>
-      Base64 Converter
+    <a href="/base64-image-converter/" class="site-logo" aria-label="Base64 Converter home">
+      <img src="/base64-image-converter/assets/main-logo.png" alt="" width="32" height="32"/>
+      <span>Base64 Converter</span>
     </a>
-    <nav class="site-nav">
-      <a href="/base64-image-converter/">B64 → Image</a>
-      <a href="/base64-image-converter/image-to-base64/">Image → B64</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/base64-image-converter/" class="nav-link" data-page="home"><i class="fi fi-rr-picture" aria-hidden="true"></i> B64 → Image</a>
+      <a href="/base64-image-converter/image-to-base64/" class="nav-link" data-page="image-to-base64"><i class="fi fi-rr-upload" aria-hidden="true"></i> Image → B64</a>
     </nav>
   </div>
 </header>
-<main>
-  <div class="container-sm">
+<main id="main" tabindex="-1">
+  <div class="wrap-sm prose-page">
     <div class="prose-card">
       <h1>Privacy Policy</h1>
-      <p class="doc-meta">Last updated: January 9, 2024 &nbsp;·&nbsp; <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener">View source on GitHub</a></p>
+      <p class="prose-meta">Last updated: January 9, 2024 &nbsp;·&nbsp; <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener"><i class="fi fi-brands-github" aria-hidden="true"></i> View source on GitHub</a></p>
 
       <h2>Introduction</h2>
-      <p>Base64 Image Converter is an open-source tool hosted at <a href="https://mrlipx.github.io/base64-image-converter/">mrlipx.github.io/base64-image-converter</a>. We believe strongly in user privacy and radical transparency. This policy explains exactly how the tool handles your data.</p>
+      <p>Base64 Image Converter is an open-source tool hosted at <a href="https://mrlipx.github.io/base64-image-converter/">mrlipx.github.io/base64-image-converter</a>. We are committed to radical transparency about how the tool handles your data.</p>
 
       <h2>Data Collection &amp; Processing</h2>
-      <h3>Local processing only</h3>
+      <h3><i class="fi fi-rr-shield-check" aria-hidden="true"></i> Local processing only</h3>
       <ul>
         <li>All image conversions are processed entirely in your browser using JavaScript</li>
+        <li>Images are decoded to <code>Blob</code> objects and previewed via <code>URL.createObjectURL()</code> — no data is ever sent anywhere</li>
         <li>No images or Base64 strings are ever uploaded to any server</li>
-        <li>No data leaves your device at any point during the conversion process</li>
-        <li>You can verify this by checking the browser Network tab — zero requests are made when converting</li>
+        <li>You can verify this by opening the browser Network tab — you will see zero requests when converting</li>
       </ul>
-      <h3>No storage</h3>
+      <h3><i class="fi fi-rr-database" aria-hidden="true"></i> No storage</h3>
       <ul>
         <li>We do not store any images, Base64 data, or conversion history</li>
         <li>There is no server-side processing of any kind</li>
-        <li>All data exists only temporarily in your browser's memory and is cleared when you navigate away</li>
+        <li>All data exists only temporarily in your browser's memory and is discarded when you navigate away</li>
+        <li>Blob object URLs are revoked (<code>URL.revokeObjectURL()</code>) when no longer needed</li>
       </ul>
-      <h3>No personal information</h3>
+      <h3><i class="fi fi-rr-user-slash" aria-hidden="true"></i> No personal information</h3>
       <ul>
-        <li>We do not collect any personal information</li>
-        <li>No account creation or login is required or possible</li>
-        <li>No email addresses, names, or identifiers are collected</li>
+        <li>We do not collect any personal information whatsoever</li>
+        <li>No account creation, login, or registration is required or available</li>
+        <li>No email addresses, names, IP addresses, or identifiers are collected by this tool</li>
       </ul>
 
       <h2>Open Source Commitment</h2>
-      <div class="prose-callout">This tool is fully open source. Every line of code that runs in your browser is publicly visible. Privacy isn't a promise — it's verifiable.</div>
-      <h3>Source code</h3>
+      <div class="callout"><i class="fi fi-rr-star" aria-hidden="true"></i> This tool is fully open source. Every line of code that runs in your browser is publicly visible. Privacy isn't a promise — it's verifiable code.</div>
       <ul>
-        <li>Licensed under the MIT License — free to use, modify, and redistribute</li>
+        <li>Licensed under the MIT License</li>
         <li>Available on GitHub: <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener">github.com/MrLiPx/base64-image-converter</a></li>
         <li>You can fork and self-host your own instance at any time</li>
-      </ul>
-      <h3>Community</h3>
-      <ul>
-        <li>Discussions and feedback: <a href="https://github.com/MrLiPx/base64-image-converter/discussions" target="_blank" rel="noopener">GitHub Discussions</a></li>
-        <li>Bug reports and feature requests: <a href="https://github.com/MrLiPx/base64-image-converter/issues" target="_blank" rel="noopener">GitHub Issues</a></li>
       </ul>
 
       <h2>Analytics &amp; Cookies</h2>
       <h3>Analytics</h3>
       <ul>
-        <li>We use only GitHub Pages built-in traffic analytics — aggregated, anonymous page-view counts</li>
-        <li>No personal identifiers are collected</li>
-        <li>No third-party analytics scripts (e.g. Google Analytics, Mixpanel) are loaded</li>
+        <li>We use only GitHub Pages built-in traffic stats — aggregated, anonymous page-view counts with no personal identifiers</li>
+        <li>No third-party analytics scripts are loaded (no Google Analytics, Mixpanel, etc.)</li>
       </ul>
       <h3>Cookies</h3>
       <ul>
-        <li>We use only essential cookies required for the site to function normally</li>
+        <li>We set no cookies of our own</li>
+        <li>GitHub Pages may set essential infrastructure cookies</li>
         <li>No tracking, advertising, or third-party cookies</li>
-        <li>No cookie consent banner is needed because we set no non-essential cookies</li>
       </ul>
 
       <h2>Security</h2>
       <ul>
-        <li>All conversions happen locally — there is no server-side attack surface for your data</li>
-        <li>The site is served over HTTPS via GitHub Pages with industry-standard TLS encryption</li>
-        <li>Open-source code means any security issues can be identified and fixed by the community</li>
+        <li>All conversions happen locally — there is no server-side attack surface for your image data</li>
+        <li>The site is served over HTTPS via GitHub Pages with industry-standard TLS</li>
+        <li>Open-source code means any security issues can be identified and fixed publicly</li>
       </ul>
 
       <h2>Compliance</h2>
-      <p>Because we collect no personal data and perform no server-side processing, the compliance footprint is minimal by design. This policy is designed to be compatible with GDPR, CCPA, and other applicable privacy regulations.</p>
+      <p>Because we collect no personal data and perform no server-side processing, the compliance footprint is minimal by design. This policy is intended to be compatible with GDPR, CCPA, PIPEDA, and other applicable privacy regulations.</p>
 
-      <h2>Changes to this policy</h2>
+      <h2>Changes to this Policy</h2>
       <ul>
         <li>Changes are committed to the public GitHub repository with full history</li>
-        <li>The "last updated" date above reflects the most recent change</li>
+        <li>The "last updated" date above reflects the most recent revision</li>
       </ul>
 
       <h2>Contact</h2>
-      <p>For privacy-related questions or concerns, please reach out via:</p>
+      <p>For privacy-related questions or concerns:</p>
       <ul>
         <li>GitHub Discussions: <a href="https://github.com/MrLiPx/base64-image-converter/discussions" target="_blank" rel="noopener">discussions</a></li>
         <li>GitHub Issues: <a href="https://github.com/MrLiPx/base64-image-converter/issues" target="_blank" rel="noopener">issues</a></li>
@@ -109,14 +106,15 @@
     </div>
   </div>
 </main>
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
-    <span>© 2026 Base64 Image Converter &mdash; <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener">Open source (MIT)</a></span>
-    <div class="footer-links">
+    <span>© 2026 Base64 Image Converter — <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener noreferrer"><i class="fi fi-brands-github" aria-hidden="true"></i> Open source (MIT)</a></span>
+    <nav class="footer-links" aria-label="Footer navigation">
       <a href="/base64-image-converter/privacy/">Privacy</a>
       <a href="/base64-image-converter/terms/">Terms</a>
-    </div>
+    </nav>
   </div>
 </footer>
+<script src="/base64-image-converter/assets/js/main.js"></script>
 </body>
 </html>
