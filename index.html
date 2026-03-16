@@ -3,29 +3,36 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Base64 Image Converter — Free, Private & Open Source</title>
-  <meta name="description" content="Free online Base64 to Image and Image to Base64 converter. Fully private — no server, no signup, no tracking. Runs 100% in your browser."/>
-  <meta name="keywords" content="base64 to image, image to base64, base64 converter, base64 decoder, data url converter, encode decode image"/>
+  <title>Base64 Image Converter — Free, Private &amp; Open Source</title>
+  <meta name="description" content="Free online Base64 to Image and Image to Base64 converter. Fully private — all processing runs 100% in your browser. No server, no signup, no tracking. MIT open source."/>
+  <meta name="keywords" content="base64 to image, image to base64, base64 converter, base64 decoder, base64 encoder, data url converter, encode image base64, decode base64 image, png to base64, jpeg to base64, free base64 tool"/>
   <meta name="author" content="MrLiPx"/>
+  <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/"/>
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)"/>
+  <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)"/>
+
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://mrlipx.github.io/base64-image-converter/"/>
-  <meta property="og:title" content="Base64 Image Converter — Free, Private & Open Source"/>
-  <meta property="og:description" content="Free online Base64 to Image and Image to Base64 converter. Runs 100% in your browser — no server, no signup."/>
+  <meta property="og:title" content="Base64 Image Converter — Free, Private &amp; Open Source"/>
+  <meta property="og:description" content="Free online Base64 to Image and Image to Base64 converter. Runs 100% in your browser — no server, no signup, no tracking."/>
   <meta property="og:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta property="og:site_name" content="Base64 Image Converter"/>
+  <meta property="og:locale" content="en_US"/>
+
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Base64 Image Converter"/>
-  <meta name="twitter:description" content="Free, private Base64 image converter. Runs entirely in your browser."/>
+  <meta name="twitter:site" content="@MrLiPx"/>
+  <meta name="twitter:creator" content="@MrLiPx"/>
+  <meta name="twitter:title" content="Base64 Image Converter — Free, Private &amp; Open Source"/>
+  <meta name="twitter:description" content="Free, private Base64 image converter. Runs entirely in your browser — no server, no signup."/>
   <meta name="twitter:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
-  
-  
-  
+
   <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
-  <meta name="theme-color" content="#0f172a"/>
   <link rel="icon" href="/base64-image-converter/assets/logo.png" type="image/png"/>
   <link rel="apple-touch-icon" href="/base64-image-converter/assets/logo.png"/>
-  <link rel="preload" href="/base64-image-converter/assets/styles_Z5jCVG3c.css" as="style"/>
+
   <link rel="preload" href="/base64-image-converter/assets/styles_Z5jCVG3c.css" as="style"/>
   <link rel="preload" href="/base64-image-converter/assets/core_YwCdbQMX.js" as="script"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -34,7 +41,86 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
   <link rel="stylesheet" href="/base64-image-converter/assets/styles_Z5jCVG3c.css"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Base64 Image Converter","url":"https://mrlipx.github.io/base64-image-converter/","description":"Free online Base64 to Image and Image to Base64 converter. Fully private, open source.","author":{"@type":"Person","name":"MrLiPx","url":"https://github.com/MrLiPx"}}</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Base64 Image Converter",
+        "url": "https://mrlipx.github.io/base64-image-converter/",
+        "description": "Free online Base64 to Image and Image to Base64 converter. Fully private, open source.",
+        "author": { "@type": "Person", "name": "MrLiPx", "url": "https://github.com/MrLiPx" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Base64 Image Converter",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "description": "Free online Base64 to Image and Image to Base64 converter. Runs 100% in your browser — no server, no signup, no tracking.",
+        "url": "https://mrlipx.github.io/base64-image-converter/",
+        "downloadUrl": "https://github.com/MrLiPx/base64-image-converter",
+        "softwareVersion": "1.1.0",
+        "license": "https://github.com/MrLiPx/base64-image-converter/blob/main/LICENSE",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "MrLiPx", "url": "https://github.com/MrLiPx" },
+        "featureList": [
+          "Base64 string to image decoding",
+          "Image to Base64 / Data URL encoding",
+          "Auto-converts on paste",
+          "Drag-and-drop file upload",
+          "Clipboard paste support",
+          "Import image from URL with CORS proxy fallback",
+          "One-click copy to clipboard",
+          "Data URL and Raw Base64 output toggle",
+          "Format auto-detection (PNG, JPEG, GIF, WebP, SVG, BMP, ICO)",
+          "Image dimensions and file size display",
+          "One-click image download",
+          "Dark / Light / System theme",
+          "100% private — no server upload",
+          "Zero dependencies — pure HTML, CSS, JS"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my image data sent to a server?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. All conversion processing happens using browser-native APIs (FileReader, URL.createObjectURL). Your image data never leaves your device." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which image formats are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "PNG, JPEG, GIF (animated), WebP, SVG, BMP, and ICO. Format is auto-detected from the Data URL mime type or Base64 magic byte prefixes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a file size limit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "For Image to Base64, the limit is 10 MB per file. For Base64 to Image, there is no hard limit — very large strings may take a second on slower devices." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I import an image from a URL?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Image to Base64 tool has a URL import tab. Paste any public image URL and the tool fetches and converts it. CORS-blocked URLs are automatically retried via a proxy. Use ?import=<url> to share a shareable link." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Base64 Image Converter open source?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The project is MIT-licensed and available at https://github.com/MrLiPx/base64-image-converter. You can fork, self-host, and contribute freely." }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Base64 Image Converter", "item": "https://mrlipx.github.io/base64-image-converter/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div id="site-header-mount"></div>
@@ -61,22 +147,18 @@
     <a href="/base64-image-converter/app/base64-to-image/" class="hub-card" role="listitem" style="--hub-accent:linear-gradient(90deg,#2563eb,#6366f1)">
       <div class="hub-card-icon blue" aria-hidden="true"><i class="fi fi-rr-picture"></i></div>
       <div>
-        <h2>Base64 → Image</h2>
+        <h2>Base64 &rarr; Image</h2>
         <p>Paste any Base64 string or Data URL and instantly preview and download the image. Auto-detects format, shows dimensions and file size.</p>
       </div>
-      <div class="hub-card-arrow">
-        Open converter <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
-      </div>
+      <div class="hub-card-arrow">Open converter <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></div>
     </a>
     <a href="/base64-image-converter/app/image-to-base64/" class="hub-card" role="listitem" style="--hub-accent:linear-gradient(90deg,#4f46e5,#7c3aed)">
       <div class="hub-card-icon indigo" aria-hidden="true"><i class="fi fi-rr-upload"></i></div>
       <div>
-        <h2>Image → Base64</h2>
-        <p>Upload, drag-and-drop, or paste an image from your clipboard and instantly get its Base64 string or Data URL. One-click copy.</p>
+        <h2>Image &rarr; Base64</h2>
+        <p>Upload, drag-and-drop, paste from clipboard, or import from URL — instantly get the Base64 string or Data URL. One-click copy.</p>
       </div>
-      <div class="hub-card-arrow">
-        Open converter <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
-      </div>
+      <div class="hub-card-arrow">Open converter <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></div>
     </a>
   </div>
 
@@ -118,6 +200,35 @@
         <h3>All formats</h3>
         <p>PNG, JPEG, GIF (animated), WebP, SVG, BMP and ICO. Format auto-detected from mime type or magic bytes.</p>
       </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section aria-labelledby="faq-head">
+    <div class="section-head">
+      <h2 id="faq-head">Frequently asked questions</h2>
+    </div>
+    <div class="faq" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is my image data sent to a server?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">No. All conversion uses browser-native APIs — <code>FileReader</code> for encoding, <code>atob()</code> and <code>URL.createObjectURL()</code> for decoding. Your image data never leaves your device.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Which image formats are supported?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">PNG, JPEG, GIF (animated), WebP, SVG, BMP, and ICO. Format is auto-detected from the Data URL mime type or Base64 magic byte prefixes (e.g. <code>/9j/</code> = JPEG, <code>iVBOR</code> = PNG, <code>R0lGOD</code> = GIF).</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is there a file size limit?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">For Image &rarr; Base64: max 10 MB per file. For Base64 &rarr; Image: no hard limit — very large strings (20 MB+) may take a moment on slower devices. Your browser memory is the only real constraint.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Can I import an image from a URL?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">Yes — use the URL import tab in the Image &rarr; Base64 tool. Paste any public image URL. CORS-blocked URLs are automatically retried via multiple proxies. You can also share a shareable link with <code>?import=&lt;url&gt;</code>.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is Base64 Image Converter open source?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
+        <div class="faq-body"><div class="faq-ans">Yes. The project is MIT-licensed and available at <a href="https://github.com/MrLiPx/base64-image-converter" target="_blank" rel="noopener noreferrer">github.com/MrLiPx/base64-image-converter</a>. Fork it, self-host it, and contribute freely.</div></div>
+      </div>
     </div>
   </section>
 

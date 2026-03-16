@@ -1,8 +1,8 @@
 /* ================================================================
-   encoder.js — Image → Base64 converter logic
+   encoder.js v1.1.0 — Image → Base64 converter logic
    - Drag/drop, file picker, clipboard paste
    - URL import via UI input or ?import=<url> query param
-   - CORS fallback via allorigins.win proxy
+   - CORS fallback via multiple proxies
    ================================================================ */
 (function () {
   'use strict';
@@ -11,7 +11,12 @@
   var _blobUrl = null;
   var _fmt     = 'dataurl';
 
-  var PROXY = 'https://api.allorigins.win/raw?url=';
+  var PROXIES = [
+    'https://api.allorigins.win/raw?url=',
+    'https://corsproxy.io/?',
+    'https://thingproxy.freeboard.io/fetch/'
+  ];
+  var FETCH_TIMEOUT_MS = 12000;
 
   /* ── DOMContentLoaded ── */
   document.addEventListener('DOMContentLoaded', function () {
@@ -36,6 +41,9 @@
       if (file) handleFile(file);
       else showToast('Please drop an image file', 'error');
     });
+    dz.addEventListener('click', function () {
+      document.getElementById('file-input').click();
+    });
     dz.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -43,7 +51,11 @@
       }
     });
 
+    /* Global paste listener */
     document.addEventListener('paste', function (e) {
+      /* Don't intercept paste in text inputs */
+      var tag = document.activeElement && document.activeElement.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
       var items = (e.clipboardData || (e.originalEvent && e.originalEvent.clipboardData) || {}).items || [];
       for (var i = 0; i < items.length; i++) {
         if (items[i].type.indexOf('image') !== -1) {
@@ -65,56 +77,77 @@
     if (!tabFile || !tabUrl) return;
 
     tabFile.addEventListener('click', function () {
-      tabFile.classList.add('active');
-      tabFile.setAttribute('aria-selected', 'true');
-      tabUrl.classList.remove('active');
-      tabUrl.setAttribute('aria-selected', 'false');
-      panelFile.style.display = '';
-      panelUrl.style.display  = 'none';
+      tabFile.classList.add('active');   tabFile.setAttribute('aria-selected', 'true');
+      tabUrl.classList.remove('active'); tabUrl.setAttribute('aria-selected', 'false');
+      panelFile.style.display = ''; panelUrl.style.display = 'none';
     });
-
     tabUrl.addEventListener('click', function () {
-      tabUrl.classList.add('active');
-      tabUrl.setAttribute('aria-selected', 'true');
-      tabFile.classList.remove('active');
-      tabFile.setAttribute('aria-selected', 'false');
-      panelUrl.style.display  = '';
-      panelFile.style.display = 'none';
+      tabUrl.classList.add('active');     tabUrl.setAttribute('aria-selected', 'true');
+      tabFile.classList.remove('active'); tabFile.setAttribute('aria-selected', 'false');
+      panelUrl.style.display = ''; panelFile.style.display = 'none';
       if (input) input.focus();
     });
 
     if (btn && input) {
-      btn.addEventListener('click', function () {
-        triggerUrlImport(input.value.trim());
-      });
+      btn.addEventListener('click', function () { triggerUrlImport(input.value.trim()); });
       input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); triggerUrlImport(input.value.trim()); }
       });
     }
   }
 
-  /* ── Switch to URL tab (called by checkImportParam) ── */
   function switchToUrlTab() {
-    var tabFile   = document.getElementById('tab-file');
-    var tabUrl    = document.getElementById('tab-url');
-    var panelFile = document.getElementById('panel-file');
-    var panelUrl  = document.getElementById('panel-url');
+    var tabFile = document.getElementById('tab-file'), tabUrl = document.getElementById('tab-url');
+    var panelFile = document.getElementById('panel-file'), panelUrl = document.getElementById('panel-url');
     if (!tabUrl) return;
-    tabUrl.classList.add('active');
-    tabUrl.setAttribute('aria-selected', 'true');
+    tabUrl.classList.add('active');   tabUrl.setAttribute('aria-selected', 'true');
     if (tabFile) { tabFile.classList.remove('active'); tabFile.setAttribute('aria-selected', 'false'); }
     if (panelUrl)  panelUrl.style.display  = '';
     if (panelFile) panelFile.style.display = 'none';
   }
 
-  /* ── Fetch image from URL with CORS fallback ── */
+  /* ── Fetch with timeout ── */
+  function _fetchTimeout(url, opts) {
+    var ctrl  = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, FETCH_TIMEOUT_MS) : null;
+    var options = Object.assign({ signal: ctrl ? ctrl.signal : undefined }, opts || {});
+    return fetch(url, options).then(function (res) {
+      clearTimeout(timer); return res;
+    }).catch(function (err) {
+      clearTimeout(timer); throw err;
+    });
+  }
+
+  /* Try direct fetch, then proxy chain */
+  function fetchWithFallback(url) {
+    return _fetchTimeout(url, { mode: 'cors' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.blob();
+      })
+      .catch(function () {
+        return tryProxies(url, 0);
+      });
+  }
+
+  function tryProxies(url, idx) {
+    if (idx >= PROXIES.length) return Promise.reject(new Error('All proxies failed'));
+    return _fetchTimeout(PROXIES[idx] + encodeURIComponent(url))
+      .then(function (res) {
+        if (!res.ok) throw new Error('Proxy HTTP ' + res.status);
+        return res.blob();
+      })
+      .catch(function (err) {
+        if (err.name === 'AbortError') return tryProxies(url, idx + 1);
+        return tryProxies(url, idx + 1);
+      });
+  }
+
+  /* ── Fetch image from URL ── */
   function triggerUrlImport(url) {
     if (!url) { showToast('Paste an image URL first', 'error'); return; }
-
-    /* Basic URL validation */
     try { new URL(url); } catch (e) {
-      showToast('Invalid URL \u2014 make sure it starts with https://', 'error');
-      return;
+      showToast('Invalid URL \u2014 make sure it starts with https://', 'error'); return;
     }
 
     setUrlImportLoading(true);
@@ -123,7 +156,6 @@
     fetchWithFallback(url)
       .then(function (blob) {
         if (!blob.type.startsWith('image/')) {
-          /* Try to guess from URL extension */
           var ext = url.split('.').pop().toLowerCase().split('?')[0];
           var mimeMap = { jpg:'image/jpeg', jpeg:'image/jpeg', png:'image/png',
                           gif:'image/gif', webp:'image/webp', svg:'image/svg+xml',
@@ -135,33 +167,16 @@
           throw new Error('URL does not appear to be an image');
         }
         var filename = url.split('/').pop().split('?')[0] || 'imported-image';
-        var file = new File([blob], filename, { type: blob.type });
-        handleFile(file);
-
-        /* Clear the input after success */
+        handleFile(new File([blob], filename, { type: blob.type }));
         var input = document.getElementById('url-import-input');
         if (input) input.value = '';
       })
       .catch(function (err) {
-        showToast('Import failed: ' + err.message, 'error');
+        var msg = err.name === 'AbortError'
+          ? 'Request timed out \u2014 try again'
+          : 'Import failed: ' + (err.message || 'unknown error');
+        showToast(msg, 'error');
         setUrlImportLoading(false);
-      });
-  }
-
-  /* Try direct fetch first, fall back to allorigins proxy on CORS/network error */
-  function fetchWithFallback(url) {
-    return fetch(url, { mode: 'cors' })
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.blob();
-      })
-      .catch(function () {
-        /* CORS blocked or network error — try the proxy */
-        return fetch(PROXY + encodeURIComponent(url))
-          .then(function (res) {
-            if (!res.ok) throw new Error('HTTP ' + res.status + ' (via proxy)');
-            return res.blob();
-          });
       });
   }
 
@@ -176,31 +191,25 @@
 
   /* ── Auto-import from ?import= query param ── */
   function checkImportParam() {
-    var params    = new URLSearchParams(window.location.search);
-    var importUrl = params.get('import');
-    if (!importUrl) return;
-
-    /* Strip ?import= from the address bar immediately — clean URL, no reload */
     try {
-      history.replaceState(null, '', window.location.pathname + window.location.hash);
-    } catch (e) { /* ignore in sandboxed environments */ }
-
-    /* Switch to the URL tab and pre-fill the input */
-    switchToUrlTab();
-    var input = document.getElementById('url-import-input');
-    if (input) input.value = importUrl;
-
-    triggerUrlImport(importUrl);
+      var params = new URLSearchParams(window.location.search);
+      var importUrl = params.get('import');
+      if (!importUrl) return;
+      try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (_) {}
+      switchToUrlTab();
+      var input = document.getElementById('url-import-input');
+      if (input) input.value = importUrl;
+      triggerUrlImport(importUrl);
+    } catch (_) {}
   }
 
-  /* ── Handle file ── */
+  /* ── Handle file (from drop, picker, clipboard, URL fetch) ── */
   function handleFile(file) {
     if (!file) return;
     setUrlImportLoading(false);
 
     if (!file.type.startsWith('image/')) {
-      showToast('Not an image \u2014 only PNG, JPEG, GIF, WebP, SVG, BMP, ICO are supported', 'error');
-      return;
+      showToast('Not an image \u2014 PNG, JPEG, GIF, WebP, SVG, BMP, ICO supported', 'error'); return;
     }
     if (file.size > 10 * 1024 * 1024) {
       showToast('File too large \u2014 max 10 MB', 'error'); return;
@@ -210,11 +219,11 @@
     _blobUrl = URL.createObjectURL(file);
 
     var thumb = document.getElementById('dz-thumb');
-    thumb.src          = _blobUrl;
-    thumb.style.display = 'block';
-    thumb.style.cursor  = 'pointer';
-    thumb.title         = 'Click to open in new tab';
-    thumb.onclick = function () { window.open(_blobUrl, '_blank', 'noopener,noreferrer'); };
+    if (thumb) {
+      thumb.src = _blobUrl; thumb.style.display = 'block';
+      thumb.style.cursor = 'pointer'; thumb.title = 'Click to open in new tab';
+      thumb.onclick = function () { window.open(_blobUrl, '_blank', 'noopener,noreferrer'); };
+    }
 
     renderBlobLink(_blobUrl);
 
@@ -263,8 +272,7 @@
   /* ── Render output textarea ── */
   function renderOutput() {
     if (!_dataUrl) return;
-    var out = _fmt === 'raw' && _dataUrl.includes(',')
-      ? _dataUrl.split(',')[1] : _dataUrl;
+    var out = _fmt === 'raw' && _dataUrl.includes(',') ? _dataUrl.split(',')[1] : _dataUrl;
     document.getElementById('b64output').value = out;
     var len = out.length;
     document.getElementById('char-count').textContent =
@@ -296,7 +304,7 @@
     var fi = document.getElementById('file-input');
     if (fi) fi.value = '';
     var thumb = document.getElementById('dz-thumb');
-    thumb.style.display = 'none'; thumb.src = ''; thumb.onclick = null;
+    if (thumb) { thumb.style.display = 'none'; thumb.src = ''; thumb.onclick = null; }
     var blobWrap = document.getElementById('blob-link-wrap');
     if (blobWrap) { blobWrap.innerHTML = ''; blobWrap.style.display = 'none'; }
     document.getElementById('b64output').value        = '';

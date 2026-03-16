@@ -860,3 +860,254 @@ section{padding:1.5rem 0}
   padding:.65rem .875rem;
   font-size:.9375rem;
 }
+
+/* ================================================================
+   v1.1.0 additions — Dark mode, mobile nav, theme toggle,
+   skip link, focus-visible, nav-actions
+   ================================================================ */
+
+/* ── Dark mode design tokens ── */
+[data-theme="dark"] {
+  --c-bg:#0f172a;
+  --c-bg-alt:#1e293b;
+  --c-surface:#1e293b;
+  --c-surface-2:#263548;
+  --c-border:#334155;
+  --c-border-2:#475569;
+
+  --c-text:#e2e8f0;
+  --c-text-2:#94a3b8;
+  --c-text-3:#64748b;
+
+  --c-blue-700:#3b82f6;
+  --c-blue-600:#60a5fa;
+  --c-blue-500:#93c5fd;
+  --c-blue-400:#bfdbfe;
+  --c-blue-100:#1e3a5f;
+  --c-blue-50:#172554;
+
+  --c-green-700:#4ade80;
+  --c-green-600:#86efac;
+  --c-green-100:#14532d;
+  --c-green-50:#052e16;
+
+  --c-red-600:#f87171;
+  --c-red-100:#450a0a;
+  --c-red-50:#2d0404;
+
+  --c-header:#0f172a;
+
+  --sh-xs:0 1px 2px rgba(0,0,0,.4);
+  --sh-sm:0 1px 3px rgba(0,0,0,.5),0 1px 2px rgba(0,0,0,.4);
+  --sh-md:0 4px 8px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.35);
+  --sh-lg:0 10px 24px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.4);
+  --sh-xl:0 20px 40px rgba(0,0,0,.6);
+}
+
+/* Gradient text fix for dark mode */
+[data-theme="dark"] .hero h1 {
+  background:linear-gradient(155deg,#e2e8f0 0%,#94a3b8 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* ── Skip to content link ── */
+.skip-link {
+  position:absolute;
+  top:-100%;
+  left:8px;
+  z-index:9999;
+  padding:7px 16px;
+  background:var(--c-blue-600);
+  color:#fff;
+  font-size:.8125rem;
+  font-weight:700;
+  border-radius:0 0 var(--r-sm) var(--r-sm);
+  text-decoration:none;
+  transition:top .1s;
+}
+.skip-link:focus { top:0; }
+
+/* ── Nav actions (theme toggle + hamburger) ── */
+.nav-actions {
+  display:flex;
+  align-items:center;
+  gap:.25rem;
+  margin-left:.5rem;
+}
+.nav-icon-btn {
+  all:unset;
+  box-sizing:border-box;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:var(--r-sm);
+  border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);
+  cursor:pointer;
+  transition:background var(--t),border-color var(--t),color var(--t);
+  flex-shrink:0;
+  font-size:1rem;
+}
+.nav-icon-btn:hover {
+  background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.35);
+  color:#fff;
+}
+
+/* ── Hamburger (hidden on desktop) ── */
+.nav-hamburger { display:none; }
+
+/* ── Focus visible rings ── */
+button:focus-visible,
+a:focus-visible,
+[tabindex="0"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline:2px solid var(--c-blue-600);
+  outline-offset:2px;
+}
+
+/* ── Mobile nav ── */
+@media (max-width:700px) {
+  .nav-hamburger { display:inline-flex; }
+
+  .site-nav {
+    position:fixed;
+    top:60px;
+    left:0;right:0;
+    background:var(--c-header);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:.5rem .75rem .75rem;
+    box-shadow:0 12px 32px rgba(0,0,0,.45);
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease;
+    z-index:150;
+  }
+  .site-nav.mobile-open {
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:all;
+  }
+  .nav-link {
+    padding:.65rem 1rem;
+    font-size:.9rem;
+    border-radius:var(--r-md);
+  }
+  .nav-tip {
+    padding:.65rem 1rem;
+    border-radius:var(--r-md);
+  }
+  .nav-github {
+    padding:.65rem 1rem !important;
+  }
+  .nav-github .gh-label { display:inline !important; }
+}
+
+/* ── Dark mode: card adjustments ── */
+[data-theme="dark"] .card {
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .feat-card {
+  background:var(--c-surface);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .chip {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .hero-eyebrow {
+  background:var(--c-blue-50);
+  border-color:var(--c-blue-100);
+}
+[data-theme="dark"] .dropzone {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .dropzone:hover,
+[data-theme="dark"] .dropzone.drag-over {
+  background:color-mix(in srgb, var(--c-blue-50) 60%, transparent);
+}
+[data-theme="dark"] textarea,
+[data-theme="dark"] .url-import-input {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+  color:var(--c-text);
+}
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] .url-import-input:focus {
+  border-color:var(--c-blue-600);
+}
+[data-theme="dark"] .input-tabs {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .input-tab.active {
+  background:var(--c-surface);
+}
+[data-theme="dark"] .faq-item {
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .faq-q:hover {
+  background:var(--c-surface-2);
+}
+[data-theme="dark"] .hub-card {
+  background:var(--c-surface);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .hub-donate {
+  background:var(--c-surface);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .preview-area {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .site-footer {
+  border-top-color:var(--c-border);
+}
+[data-theme="dark"] .msg-error {
+  background:var(--c-red-50);
+  border-color:rgba(248,113,113,.3);
+}
+[data-theme="dark"] .kbd {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+  color:var(--c-text-2);
+}
+[data-theme="dark"] .breadcrumb a,
+[data-theme="dark"] .breadcrumb span {
+  color:var(--c-text-2);
+}
+[data-theme="dark"] code {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+  color:var(--c-text);
+}
+[data-theme="dark"] .blob-link {
+  background:var(--c-surface-2);
+  border-color:var(--c-border);
+}
+[data-theme="dark"] .fmt-toggle label {
+  border-color:var(--c-border);
+  background:var(--c-surface-2);
+}
+[data-theme="dark"] .fmt-toggle label.active {
+  background:var(--c-blue-50);
+  border-color:var(--c-blue-100);
+}
+[data-theme="dark"] .section-head p {
+  color:var(--c-text-2);
+}
+[data-theme="dark"] .char-count {
+  color:var(--c-text-3);
+}

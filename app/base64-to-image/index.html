@@ -4,25 +4,31 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Base64 to Image Converter — Free, Private &amp; Instant</title>
-  <meta name="description" content="Paste any Base64 string and instantly preview and download the image. Auto-detects PNG, JPEG, GIF, WebP, SVG. Runs 100% in your browser — no server, no signup."/>
-  <meta name="keywords" content="base64 to image, base64 decoder, decode base64 image, data url to image, base64 png jpeg"/>
+  <meta name="description" content="Paste any Base64 string or Data URL and instantly preview and download the image. Auto-detects PNG, JPEG, GIF, WebP, SVG, BMP, ICO. Runs 100% in your browser — no server, no signup."/>
+  <meta name="keywords" content="base64 to image, base64 decoder, decode base64 image, data url to image, base64 png jpeg gif webp svg"/>
   <meta name="author" content="MrLiPx"/>
   <link rel="canonical" href="https://mrlipx.github.io/base64-image-converter/app/base64-to-image/"/>
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)"/>
+  <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)"/>
+
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://mrlipx.github.io/base64-image-converter/app/base64-to-image/"/>
   <meta property="og:title" content="Base64 to Image Converter — Free &amp; Private"/>
   <meta property="og:description" content="Paste any Base64 string and instantly preview and download your image. 100% private, runs in-browser."/>
   <meta property="og:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta property="og:site_name" content="Base64 Image Converter"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@MrLiPx"/>
   <meta name="twitter:title" content="Base64 to Image Converter"/>
   <meta name="twitter:description" content="Paste Base64, get image instantly. 100% private."/>
   <meta name="twitter:image" content="https://mrlipx.github.io/base64-image-converter/assets/og-base64-to-image.png"/>
-  <meta name="theme-color" content="#0f172a"/>
+
   <link rel="icon" href="/base64-image-converter/assets/logo.png" type="image/png"/>
   <link rel="apple-touch-icon" href="/base64-image-converter/assets/logo.png"/>
   <link rel="manifest" href="/base64-image-converter/site.webmanifest"/>
-  <!-- Performance: preload critical assets -->
+
   <link rel="preload" href="/base64-image-converter/assets/styles_Z5jCVG3c.css" as="style"/>
   <link rel="preload" href="/base64-image-converter/assets/core_YwCdbQMX.js" as="script"/>
   <link rel="preload" href="/base64-image-converter/assets/decoder_E2DdEdTI.js" as="script"/>
@@ -32,7 +38,32 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css"/>
   <link rel="stylesheet" href="/base64-image-converter/assets/styles_Z5jCVG3c.css"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Base64 to Image Converter","url":"https://mrlipx.github.io/base64-image-converter/app/base64-to-image/","description":"Paste any Base64 string and instantly preview and download the image. Supports PNG, JPEG, GIF, WebP, SVG. 100% private.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"MrLiPx","url":"https://github.com/MrLiPx"}}</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Base64 to Image Converter",
+        "url": "https://mrlipx.github.io/base64-image-converter/app/base64-to-image/",
+        "description": "Paste any Base64 string and instantly preview and download the image. Supports PNG, JPEG, GIF, WebP, SVG. 100% private.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "MrLiPx", "url": "https://github.com/MrLiPx" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mrlipx.github.io/base64-image-converter/" },
+          { "@type": "ListItem", "position": 2, "name": "Apps", "item": "https://mrlipx.github.io/base64-image-converter/app/" },
+          { "@type": "ListItem", "position": 3, "name": "Base64 to Image", "item": "https://mrlipx.github.io/base64-image-converter/app/base64-to-image/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div id="site-header-mount"></div>
@@ -45,13 +76,13 @@
     <i class="fi fi-rr-angle-right" aria-hidden="true"></i>
     <a href="/base64-image-converter/app/">Apps</a>
     <i class="fi fi-rr-angle-right" aria-hidden="true"></i>
-    <span>Base64 → Image</span>
+    <span aria-current="page">Base64 &rarr; Image</span>
   </nav>
 
   <div class="hero" style="padding-top:1.5rem">
     <div class="hero-eyebrow">
       <i class="fi fi-rr-picture" aria-hidden="true"></i>
-      Base64 → Image
+      Base64 &rarr; Image
     </div>
     <h1>Base64 to Image Converter</h1>
     <p class="hero-desc">Paste any Base64 string and instantly preview and download your image. Auto-converts on paste. Runs 100% in your browser.</p>
@@ -67,7 +98,7 @@
     <div class="card-header">
       <div class="card-icon" aria-hidden="true"><i class="fi fi-rr-picture"></i></div>
       <div>
-        <div class="card-title">Convert Base64 → Image</div>
+        <div class="card-title">Convert Base64 &rarr; Image</div>
         <div class="card-subtitle">Accepts raw Base64 or full Data URLs</div>
       </div>
     </div>
@@ -101,7 +132,6 @@
       </button>
     </div>
 
-    <!-- Blob URL link -->
     <div id="blob-link-wrap" aria-label="Blob preview URL" style="display:none"></div>
 
     <div class="divider" aria-hidden="true"></div>
@@ -170,7 +200,7 @@
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">How does the blob: preview URL work?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
-        <div class="faq-body"><div class="faq-ans">The Base64 string is decoded to a <code>Blob</code> object in your browser, then <code>URL.createObjectURL()</code> creates a temporary <code>blob:https://…</code> URL for the preview. No data leaves your device. Click the blob link or the preview image to open in a new tab.</div></div>
+        <div class="faq-body"><div class="faq-ans">The Base64 string is decoded to a <code>Blob</code> object in your browser, then <code>URL.createObjectURL()</code> creates a temporary <code>blob:https://…</code> URL. No data leaves your device. Click the blob link or the preview image to open in a new tab.</div></div>
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Is there a file size limit?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
@@ -178,14 +208,14 @@
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Can I also convert images to Base64?<i class="fi fi-rr-angle-down faq-chevron" aria-hidden="true"></i></button>
-        <div class="faq-body"><div class="faq-ans">Yes — use the <a href="/base64-image-converter/app/image-to-base64/">Image → Base64</a> tool. Upload, drag-and-drop, or paste from clipboard, then copy the output with one click.</div></div>
+        <div class="faq-body"><div class="faq-ans">Yes — use the <a href="/base64-image-converter/app/image-to-base64/">Image &rarr; Base64</a> tool. Upload, drag-and-drop, or paste from clipboard, then copy the output with one click.</div></div>
       </div>
     </div>
   </section>
 
   <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
     <a href="/base64-image-converter/app/image-to-base64/" class="btn btn-secondary" style="flex:1;justify-content:center;min-width:200px">
-      <i class="fi fi-rr-upload" aria-hidden="true"></i> Switch to Image → Base64
+      <i class="fi fi-rr-upload" aria-hidden="true"></i> Switch to Image &rarr; Base64
     </a>
     <a href="https://r.mrlipx.com/tip" target="_blank" rel="noopener noreferrer" class="btn-donate" style="flex:1;justify-content:center;min-width:200px">
       <i class="fi fi-rr-heart" aria-hidden="true"></i> Tip Jar
