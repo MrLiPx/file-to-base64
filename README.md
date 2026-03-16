@@ -6,14 +6,14 @@
 
 ### Base64 to Image
 - Instantly convert Base64 strings to viewable images
-- Support for PNG, JPEG, GIF, WebP, SVG, BMP, ICO formats
+- Support for PNG, JPEG, GIF, WebP, SVG, BMP, and ICO formats
 - Real-time preview of converted images
 - One-click download option
 
 ### Image to Base64
-- Convert any image file to Base64 string
+- Convert any image file to a Base64 string
 - Drag & drop file upload
-- Copy Base64 string with one click
+- Copy the Base64 string with one click
 - Choose between raw Base64 or Data URL format
 
 ## ✨ Why Choose Us?
@@ -40,15 +40,15 @@
 
 ## 📚 Documentation
 
-- [How to Use](https://base64toimage.github.io/#how-to-use)
-- [Privacy Policy](https://base64toimage.github.io/privacy)
-- [Terms of Service](https://base64toimage.github.io/terms)
+- [How to Use](https://mrlipx.github.io/base64-image-converter#how-to-use)
+- [Privacy Policy](https://mrlipx.github.io/base64-image-converter/privacy)
+- [Terms of Service](https://mrlipx.github.io/base64-image-converter/terms)
 
 ## 🤝 Contributing
 
 We welcome contributions! Feel free to:
-- [Open an issue](https://github.com/base64toimage/base64toimage.github.io/issues)
-- [Join discussions](https://github.com/base64toimage/base64toimage.github.io/discussions)
+- [Open an issue](https://github.com/MrLiPx/base64-image-converter/issues)
+- [Join discussions](https://github.com/MrLiPx/base64-image-converter/discussions)
 - Submit a pull request
 
 ## 📝 License
@@ -57,4 +57,4 @@ This project is open source under the MIT License.
 
 ## 🌟 Try It Now
 
-Visit [base64toimage.github.io](https://base64toimage.github.io) to start converting!
+Visit [base64toimage.github.io](https://mrlipx.github.io/base64-image-converter) to start converting!
